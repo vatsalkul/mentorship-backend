@@ -51,6 +51,9 @@ export DB_ENDPOINT=<database_endpoint>
 export DB_NAME=<database_name>
 ```
 
+**NOTE: If you are using Gmail id, then [Two Step authentication](https://support.outreach.io/hc/en-us/articles/206126307-Set-Up-Gmail-Two-Step-Authentication) must be turned on. After that, you need to generate an app password (Please read the 3rd step from this: [link](https://support.cloudways.com/configure-gmail-smtp/)). Copy the generated password and paste it here: `<app-mail-password>`.**
+
+
 5. Run the app:
 `python run.py`
 
@@ -58,6 +61,25 @@ export DB_NAME=<database_name>
 
 7. When you are done using the app, deactivate the virtual environment:
 `deactivate`
+
+### Run the android app while hosting server locally 
+
+1. Fork and clone [mentorship-android](https://github.com/anitab-org/mentorship-android).
+
+2. Open the project in Android Studio.
+
+3. Open Build Variants on the left side of Android Studio and select `debug_localhost` from the drop down list. [Image](https://user-images.githubusercontent.com/30840527/75633088-0a54d380-5c28-11ea-996e-424c8fb4e951.png)
+
+Know more about [emulator networking](https://developer.android.com/studio/run/emulator-networking)
+
+After signing up using an android emulator you will get an email on registered email ID with a verification link. The link will look like this: http://10.0.2.2:5000/user/confirm_email/Imt1....
+
+If you try to open this on any other device or on your laptop, the link will not work. The shortcut is to copy the link and paste it in the android emulator. 
+You will be able to verify the email account.
+
+Alternate method:
+Copy the verification link and change http://10.0.2.2:5000/ to http://127.0.0.1:5000/ (127.0.0.1) is your local machine IP address on which the backend is hosted and now you can open the link on your local machine’s browser.	
+
 
 ### Run with docker
 1. Make sure you exported the following [environment variables](https://github.com/systers/mentorship-backend/wiki/Environment-Variables) to '.env' file
